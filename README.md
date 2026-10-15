@@ -67,6 +67,10 @@ Reviews a path or focus given as an argument, or the uncommitted changes when no
 - It is a guardrail, not a security boundary.
 - It requires `bash` on `PATH`. On Windows, Git Bash provides it.
 
+## Contributing
+
+See `CONTRIBUTING.md`.
+
 ## License
 
 MIT. See `LICENSE`.
