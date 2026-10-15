@@ -5,6 +5,10 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+### Added
+
+- `branche` skill that prepares a release PR, then merges and tags it after approval.
+
 ## [0.5.0] - 2026-10-15
 
 ### Added
