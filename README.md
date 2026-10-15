@@ -2,23 +2,32 @@
 
 [![test](https://github.com/DaliDaya/my-plugin/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/DaliDaya/my-plugin/actions/workflows/test.yml)
 
-An example Claude Code plugin with one skill, one subagent, and a hook that blocks destructive shell commands.
+An example Claude Code plugin with three skills (`hello`, `changelog-entry`, `branche`), a read-only `helper` subagent, a `/review` command, a bundled Context7 MCP server, and a hook that blocks destructive shell commands.
 
 ## Layout
 
 ```
 my-plugin/
-├── .claude-plugin/plugin.json      # plugin manifest
-├── skills/hello/SKILL.md           # "hello" skill
-├── agents/helper.md                # read-only "helper" subagent
-├── commands/review.md              # /review slash command
-├── docs/                           # extra documentation
-├── hooks/hooks.json                # hook registration
-├── .mcp.json                       # bundled MCP servers
+├── .claude-plugin/plugin.json          # plugin manifest
+├── skills/
+│   ├── hello/SKILL.md                  # "hello" skill
+│   ├── changelog-entry/SKILL.md        # drafts changelog entries
+│   └── branche/SKILL.md                # prepares and publishes a release
+├── agents/helper.md                    # read-only "helper" subagent
+├── commands/review.md                  # /review slash command
+├── hooks/hooks.json                    # hook registration
+├── scripts/block-dangerous-bash.sh     # PreToolUse hook script
 ├── tests/test-block-dangerous-bash.sh  # hook tests
-├── .github/workflows/test.yml      # CI: hook tests and JSON validation
-└── scripts/block-dangerous-bash.sh # PreToolUse hook script
+├── .mcp.json                           # bundled MCP servers
+├── docs/                               # extra documentation
+├── .github/                            # CI, release workflow, Dependabot, templates, CODEOWNERS
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── SECURITY.md
+└── LICENSE
 ```
+
+The `.claude/skills/playwright-cli/` folder is a project-level skill for developing in this repository. It is not part of the plugin.
 
 ## Usage
 
@@ -30,9 +39,11 @@ claude --plugin-dir ./my-plugin
 
 Then verify it loaded:
 
-- `/skills` lists `hello`.
+- `/skills` lists `hello`, `changelog-entry`, and `branche`.
 - `/agents` lists `helper`.
 - `/hooks` lists the `SessionStart` and `PreToolUse` hooks.
+- `/mcp` lists `context7`.
+- `/review` is available (it may appear as `/my-plugin:review`).
 
 ## Components
 
@@ -78,6 +89,12 @@ Reviews a path or focus given as an argument, or the uncommitted changes when no
 - It is a guardrail, not a security boundary.
 - It requires `bash` on `PATH`. On Windows, Git Bash provides it.
 
+## Customizing
+
+- Edit the `patterns` array in `scripts/block-dangerous-bash.sh` to change what is blocked.
+- Reference files inside the plugin from hook commands with `${CLAUDE_PLUGIN_ROOT}`.
+- Set `author` and `version` in `.claude-plugin/plugin.json`.
+
 ## Contributing
 
 See `CONTRIBUTING.md`.
@@ -85,9 +102,3 @@ See `CONTRIBUTING.md`.
 ## License
 
 MIT. See `LICENSE`.
-
-## Customizing
-
-- Edit the `patterns` array in `scripts/block-dangerous-bash.sh` to change what is blocked.
-- Reference files inside the plugin from hook commands with `${CLAUDE_PLUGIN_ROOT}`.
-- Set `author` and `version` in `.claude-plugin/plugin.json`.
