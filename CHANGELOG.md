@@ -5,6 +5,10 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+### Added
+
+- `changelog-entry` skill that drafts changelog entries from git history under `[Unreleased]`.
+
 ## [0.3.0] - 2026-10-15
 
 ### Added
