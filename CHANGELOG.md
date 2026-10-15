@@ -5,17 +5,16 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-10-15
+
 ### Added
 
 - Project-level Playwright CLI skill in `.claude/skills/playwright-cli` for development in this repository. It is not part of the plugin.
+- `supabase` CLI as a dev dependency (`package.json`), with `node_modules/` ignored.
 
 ### Changed
 
 - Plugin description in `plugin.json` now lists all components.
-
-### Added
-
-- `supabase` CLI as a dev dependency (`package.json`), with `node_modules/` ignored.
 
 ## [0.4.0] - 2026-10-15
 
