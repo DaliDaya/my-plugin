@@ -1,0 +1,39 @@
+name: test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  hook-tests:
+    name: hook tests (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run hook tests
+        run: bash tests/test-block-dangerous-bash.sh
+
+  validate-json:
+    name: validate JSON
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate plugin JSON files
+        run: |
+          for f in .claude-plugin/plugin.json hooks/hooks.json .mcp.json; do
+            echo "checking $f"
+            jq empty "$f"
+          done

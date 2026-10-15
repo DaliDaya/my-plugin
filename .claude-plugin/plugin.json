@@ -1,0 +1,9 @@
+{
+  "name": "my-plugin",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "Example plugin with one skill and one agent.",
+  "author": {
+    "name": "Your Name"
+  }
+}
