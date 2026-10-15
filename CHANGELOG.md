@@ -5,11 +5,6 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
-### Added
-
-- `tests/test-block-dangerous-bash.sh` covering allowed and blocked Bash commands for the hook.
-- GitHub Actions workflow `.github/workflows/test.yml` that runs the hook tests on Ubuntu and Windows and validates the plugin JSON files.
-
 ## [0.1.0] - 2026-10-15
 
 ### Added
@@ -21,4 +16,6 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 - `SessionStart` hook that prints `my-plugin loaded`.
 - `PreToolUse` hook on `Bash` that blocks destructive commands (`rm -rf` on root or home, force push, `git reset --hard`, `git clean -f`, `DROP TABLE`/`DROP DATABASE`, `mkfs`, `dd if=`).
 - Bundled `context7` MCP server in `.mcp.json`.
-- `README.md`, `CLAUDE.md`, `LICENSE` (MIT), and `.gitignore`.
+- `tests/test-block-dangerous-bash.sh` covering allowed and blocked Bash commands for the hook.
+- GitHub Actions workflow `.github/workflows/test.yml` that runs the hook tests on Ubuntu and Windows and validates the plugin JSON files.
+- `README.md`, `CLAUDE.md`, `LICENSE` (MIT), `.gitignore`, and `.gitattributes` (LF endings for shell scripts).
