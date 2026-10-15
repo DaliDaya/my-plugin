@@ -44,6 +44,10 @@ Greets the user and confirms the plugin is loaded. Claude invokes it when asked 
 
 Drafts Keep a Changelog entries from the commits since the last release tag and adds them under `[Unreleased]` in `CHANGELOG.md`. Claude invokes it when you ask to update the changelog or prepare release notes. It edits the file but never commits or bumps the version.
 
+### Skill: `branche`
+
+Prepares and publishes a release. It bumps `version` in `plugin.json`, turns `[Unreleased]` into a dated changelog entry, and opens a release PR. After you approve, it squash-merges the PR, pushes the `v*` tag, and checks that the release workflow published the release. It runs only when you invoke it (`disable-model-invocation`), and it asks before merging or tagging.
+
 ### Agent: `helper`
 
 A read-only subagent restricted to `Read`, `Grep`, and `Glob`. It answers lookup questions with file paths and line numbers and never edits files.
