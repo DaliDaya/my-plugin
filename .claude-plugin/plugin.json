@@ -1,6 +1,6 @@
 {
   "name": "my-plugin",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "MIT",
   "description": "Example plugin with one skill and one agent.",
   "author": {
