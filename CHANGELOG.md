@@ -5,6 +5,21 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-10-15
+
+### Added
+
+- `CONTRIBUTING.md`, `SECURITY.md`, and `.github/CODEOWNERS`.
+- Issue templates (bug report, feature request) and a pull request template.
+- Dependabot config that checks GitHub Actions weekly.
+- Release workflow `.github/workflows/release.yml` that publishes a GitHub release from `CHANGELOG.md` when a `v*` tag is pushed.
+
+### Changed
+
+- Copyright holder and plugin author set to `DaliDaya`.
+- CI uses `actions/checkout@v7`.
+- `main` is protected: the three CI checks are required, and force pushes and deletion are blocked.
+
 ## [0.1.0] - 2026-10-15
 
 ### Added
