@@ -1,5 +1,7 @@
 # my-plugin
 
+[![test](https://github.com/DaliDaya/my-plugin/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/DaliDaya/my-plugin/actions/workflows/test.yml)
+
 An example Claude Code plugin with one skill, one subagent, and a hook that blocks destructive shell commands.
 
 ## Layout
