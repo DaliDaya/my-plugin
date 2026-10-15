@@ -40,6 +40,10 @@ Then verify it loaded:
 
 Greets the user and confirms the plugin is loaded. Claude invokes it when asked to test the plugin.
 
+### Skill: `changelog-entry`
+
+Drafts Keep a Changelog entries from the commits since the last release tag and adds them under `[Unreleased]` in `CHANGELOG.md`. Claude invokes it when you ask to update the changelog or prepare release notes. It edits the file but never commits or bumps the version.
+
 ### Agent: `helper`
 
 A read-only subagent restricted to `Read`, `Grep`, and `Glob`. It answers lookup questions with file paths and line numbers and never edits files.
