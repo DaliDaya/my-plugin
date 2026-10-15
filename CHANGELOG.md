@@ -5,9 +5,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-10-15
+
 ### Added
 
 - `docs/` folder with an index and a hooks reference.
+- CI status badge in `README.md`.
 
 ## [0.2.0] - 2026-10-15
 
