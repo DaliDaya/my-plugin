@@ -2,7 +2,7 @@
   "name": "my-plugin",
   "version": "0.4.0",
   "license": "MIT",
-  "description": "Example plugin with one skill and one agent.",
+  "description": "Example plugin with a changelog-drafting skill, a read-only helper agent, a /review command, a Context7 MCP server, and a hook that blocks destructive Bash commands.",
   "author": {
     "name": "DaliDaya"
   }

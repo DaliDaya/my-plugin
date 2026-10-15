@@ -5,6 +5,10 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+### Changed
+
+- Plugin description in `plugin.json` now lists all components.
+
 ### Added
 
 - `supabase` CLI as a dev dependency (`package.json`), with `node_modules/` ignored.
