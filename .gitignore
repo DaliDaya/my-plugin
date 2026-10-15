@@ -21,3 +21,6 @@ CLAUDE.local.md
 # Logs and temp
 *.log
 tmp/
+
+# Node
+node_modules/
