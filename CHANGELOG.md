@@ -5,6 +5,10 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+### Added
+
+- Project-level Playwright CLI skill in `.claude/skills/playwright-cli` for development in this repository. It is not part of the plugin.
+
 ### Changed
 
 - Plugin description in `plugin.json` now lists all components.
