@@ -5,6 +5,10 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+### Added
+
+- `docs/` folder with an index and a hooks reference.
+
 ## [0.2.0] - 2026-10-15
 
 ### Added

@@ -12,6 +12,7 @@ my-plugin/
 ├── skills/hello/SKILL.md           # "hello" skill
 ├── agents/helper.md                # read-only "helper" subagent
 ├── commands/review.md              # /review slash command
+├── docs/                           # extra documentation
 ├── hooks/hooks.json                # hook registration
 ├── .mcp.json                       # bundled MCP servers
 ├── tests/test-block-dangerous-bash.sh  # hook tests
