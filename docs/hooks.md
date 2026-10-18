@@ -20,15 +20,17 @@ The script has no `jq` dependency. It matches the raw JSON with `grep -E`.
 
 | Pattern | Example |
 | ------- | ------- |
-| `rm -rf` on `/`, `~`, or `$HOME` | `rm -rf ~` |
-| `git push` with `--force` or `-f` | `git push --force origin main` |
+| Recursive `rm` (`-r`, `-R`, `-rf`, `-r -f`, `--recursive`) on `/`, `/*`, `~`, `~/`, or `$HOME` | `rm -rf ~` |
+| `git push` with `--force`, a short flag containing `f` (`-f`, `-fu`), or a `+refspec` | `git push --force origin main` |
 | `git reset --hard` | `git reset --hard HEAD~1` |
-| `git clean -f` (any flags containing `f`) | `git clean -fd` |
+| `git clean` with `-f` (any flags containing `f`) or `--force` | `git clean -fd` |
 | `DROP TABLE` or `DROP DATABASE`, any case | `drop database prod;` |
 | `mkfs` | `mkfs.ext4 /dev/sda1` |
-| `dd if=` | `dd if=/dev/zero of=/dev/sda` |
+| `dd` with `if=` or `of=`, in either order | `dd if=/dev/zero of=/dev/sda` |
 
-These stay allowed: `git push --force-with-lease`, `git reset --soft`, `rm -rf ./build`, and `rm -rf /tmp/scratch`.
+Before matching, the script removes quotes and backslashes from the JSON, so `rm -rf "$HOME"` is caught.
+
+These stay allowed: `git push --force-with-lease`, `git push --follow-tags`, `git reset --soft`, `git clean -n`, `rm -rf ./build`, `rm -rf /tmp/scratch`, and `rm -rf ~/projects/old`.
 
 ## Limitations
 
