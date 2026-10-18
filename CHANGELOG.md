@@ -9,6 +9,11 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 - `branche` skill that prepares a release PR, then merges and tags it after approval.
 
+### Fixed
+
+- The Bash hook now blocks `rm -rf /*`, `rm -rf ~/`, `rm -r -f /`, `rm -Rf /`, `rm --recursive --force /`, and quoted `"$HOME"` targets. It also blocks `git push -fu`, `git push origin +main`, `git -C <dir> push --force`, `git clean --force`, and `dd` with `of=` before `if=`.
+- The Bash hook no longer blocks `git add if=...` by matching `dd` inside `add`.
+
 ## [0.5.0] - 2026-10-15
 
 ### Added

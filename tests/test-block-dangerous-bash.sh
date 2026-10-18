@@ -34,6 +34,12 @@ check 0 'git reset --soft HEAD~1'
 check 0 'rm -rf ./build'
 check 0 'rm -rf /tmp/scratch'
 check 0 'echo hello'
+check 0 'git push -u origin feature-fix'
+check 0 'git push --follow-tags origin main'
+check 0 'git clean -n'
+check 0 'git add if=notes.txt'
+check 0 'rm -r node_modules'
+check 0 'rm -rf ~/projects/old'
 
 # Blocked (exit 2)
 check 2 'rm -rf /'
@@ -47,6 +53,20 @@ check 2 'DROP TABLE users;'
 check 2 'drop database prod;'
 check 2 'mkfs.ext4 /dev/sda1'
 check 2 'dd if=/dev/zero of=/dev/sda'
+
+# Blocked: forms that used to slip through
+check 2 'rm -rf /*'
+check 2 'rm -rf ~/'
+check 2 'rm -r -f /'
+check 2 'rm -Rf /'
+check 2 'rm --recursive --force /'
+check 2 'rm -rf \"$HOME\"'
+check 2 'git push -fu origin main'
+check 2 'git push origin +main'
+check 2 'git -C repo push --force'
+check 2 'git clean --force -d'
+check 2 'dd of=/dev/sda if=/dev/zero'
+check 2 'ls; rm -rf /'
 
 echo "passed: $pass, failed: $fail"
 [ "$fail" -eq 0 ]
